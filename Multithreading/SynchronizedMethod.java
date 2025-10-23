@@ -58,13 +58,13 @@ class Counter {
 	 * thread 1 could update the value from 5 to 6 , thread 2 read the value also as
 	 * 5 and both tried to update the value to 6
 	 */
-	public void increment() {
+	public synchronized void increment() {
 		count++;
 	}
 
-	public synchronized void decrement() {
-		count--;
-	}
+	// public synchronized void decrement() {
+	// 	count--;
+	// }
 
 	public int getCount() {
 		return count;
