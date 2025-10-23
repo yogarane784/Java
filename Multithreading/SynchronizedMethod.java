@@ -58,15 +58,55 @@ class Counter {
 	 * thread 1 could update the value from 5 to 6 , thread 2 read the value also as
 	 * 5 and both tried to update the value to 6
 	 */
-	public synchronized void increment() {
+	public void increment() {
 		count++;
 	}
 
-	// public synchronized void decrement() {
-	// 	count--;
-	// }
+	public synchronized void decrement() {
+		count--;
+	}
 
 	public int getCount() {
 		return count;
 	}
 }
+
+/*
+ * join()
+ * 
+ * join() tells the current thread (in this case, the main thread) to wait until
+ * the target thread (t1 or t2) has finished.
+ * 
+ * It’s like saying: “Main thread, hold on — don’t move ahead until t1
+ * finishes.”
+ * 
+ * If you remove join(), the main thread might print counter.getCount() before
+ * both threads finish, leading to incomplete results getting printed.
+ * 
+ */
+
+/*
+ * 
+ * start()
+ * 
+ * When you call t1.start(), you are starting a new thread of execution.
+ * 
+ * The run() method (or the lambda body here) runs in parallel with the main
+ * thread. DO NOT call run() directly — that would just run in the current
+ * thread (not create a new one).
+ * 
+ */
+
+/*
+ * 
+ * When you declare a method as:
+ * 
+ * public synchronized void increment() { count++; }
+ * and then call it like: counter.increment();
+ * 
+ * this means:
+ * The lock is acquired on the object referenced by counter (i.e., the instance
+ * of the class where the synchronized method lives). Only one thread at a time
+ * can hold that object’s lock
+ * 
+ */
