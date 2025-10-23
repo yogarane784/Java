@@ -1,3 +1,6 @@
+// Synchronized method, static synchronized method, join(), start(), synchronized block
+
+
 package multithreading;
 
 /**
@@ -126,3 +129,18 @@ class Counter {
  * while one thread is executing one, no other thread can execute other 
  * as the lock is acquired on the class itself
  */
+
+//Equivalent using synchronized block
+//Instead of locking the entire method, you can lock just a section:
+//
+//class Counter {
+//    private int count = 0;
+//
+//    public void increment() {
+//        synchronized (this) {
+//            count++;
+//        }
+//    }
+//}
+//
+//This gives you finer control — you can choose what part of the code to protect.
