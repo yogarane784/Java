@@ -101,12 +101,28 @@ class Counter {
  * 
  * When you declare a method as:
  * 
- * public synchronized void increment() { count++; }
- * and then call it like: counter.increment();
+ * public synchronized void increment() { count++; } and then call it like:
+ * counter.increment();
  * 
- * this means:
- * The lock is acquired on the object referenced by counter (i.e., the instance
- * of the class where the synchronized method lives). Only one thread at a time
- * can hold that object’s lock
+ * this means: The lock is acquired on the object referenced by counter (i.e.,
+ * the instance of the class where the synchronized method lives). Only one
+ * thread at a time can hold that object’s lock
  * 
+ */
+
+/*
+ * Static synchronized method class Logger 
+ * {
+ *  public static synchronized void log(String message) { 
+ *  	System.out.println(Thread.currentThread().getName() + ": " + message); 
+ *  }
+ * }
+ * 
+ * A static synchronized method locks on the class object, not an instance.
+ * 
+ * So: Logger.log() can be called from anywhere.
+ * Only one thread can execute "any static" synchronized method of Logger at a time. 
+ * i.e if there are two static synchronized methods in the class Logger, 
+ * while one thread is executing one, no other thread can execute other 
+ * as the lock is acquired on the class itself
  */
