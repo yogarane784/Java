@@ -1,0 +1,18 @@
+public class ASCIICharacters {
+
+	public static void main(String[] args) {
+
+		/**
+		 * The character 'A' has an ASCII value of 65. The character 'a' has an ASCII
+		 * value of 97. 
+		 * so 'h' - 'a' = 104 - 97 = 7
+		 * 'H' - 'A' = 72 - 65 = 7
+		 */
+		String s = "hello";
+
+		for (int i = 0; i < s.length(); i++)
+			System.out.println(s.charAt(i) - 'a');
+
+	}
+
+}
